@@ -26,11 +26,7 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     Player player = new Player(this, keyH);
 
-    // Set player's position:
 
-    int playerX = 100;
-    int playerY = 100;
-    int playerSped = 4;
 
     public GamePanel(){
 
