@@ -30,7 +30,8 @@ public class TileManager {
             //tile[1].image = ImageIO.read(getClass().getResourceAsStream("C:\\Users\\Andris\\IdeaProjects\\My2DGame\\res\\tiles\\wall.png"));
 
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResource("/player/water.png"));
+            tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/player/sand.png")));
+            //tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/water.png")));
 
         } catch (IOException e) {
             e.printStackTrace();
