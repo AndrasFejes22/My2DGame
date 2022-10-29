@@ -27,10 +27,10 @@ public class TileManager {
             //tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/tiles/grass.png")));
 
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getResource("/tiles/wall.png"));
+            //tile[1].image = ImageIO.read(getClass().getResourceAsStream("C:\\Users\\Andris\\IdeaProjects\\My2DGame\\res\\tiles\\wall.png"));
 
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
+            tile[2].image = ImageIO.read(getClass().getResource("/player/water.png"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,6 +38,6 @@ public class TileManager {
     }
 
     public void draw(Graphics2D g2){
-        g2.drawImage(tile[1].image, 0, 0, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(tile[2].image, 0, 0, gp.tileSize, gp.tileSize, null);
     }
 }
