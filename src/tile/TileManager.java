@@ -5,6 +5,7 @@ import main.GamePanel;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Objects;
 
 public class TileManager {
 
@@ -19,12 +20,14 @@ public class TileManager {
 
     public void getTileImage(){
 
+        //up1 = ImageIO.read(getClass().getResource("/player/boy_up_1.png"));
+
         try {
             tile[0] = new Tile();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
+            //tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/tiles/grass.png")));
 
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wall.png"));
+            tile[1].image = ImageIO.read(getClass().getResource("/tiles/wall.png"));
 
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
@@ -35,6 +38,6 @@ public class TileManager {
     }
 
     public void draw(Graphics2D g2){
-        g2.drawImage(tile[0].image, 0, 0, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(tile[1].image, 0, 0, gp.tileSize, gp.tileSize, null);
     }
 }

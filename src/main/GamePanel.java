@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +26,7 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     KeyHandler keyH = new KeyHandler();
     Player player = new Player(this, keyH);
+    TileManager tileM = new TileManager(this);
 
 
 
@@ -100,7 +102,9 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(graphics);
 
         Graphics2D g2 = (Graphics2D) graphics;
+        tileM.draw(g2);
         player.draw(g2);
+
         g2.dispose();
     }
 }
