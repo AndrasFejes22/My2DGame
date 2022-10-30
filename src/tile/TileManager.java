@@ -38,8 +38,8 @@ public class TileManager {
             tile[2] = new Tile();
             tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/water.png")));
 
-            //tile[3] = new Tile();
-            //tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/tree.png")));
+            tile[3] = new Tile();
+            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/tree.png")));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,8 +48,8 @@ public class TileManager {
 
     public void loadMap(){
         try {
-        //InputStream is = getClass().getResourceAsStream("/maps/map_tree");
-        InputStream is = getClass().getResourceAsStream("/maps/map.txt");
+        InputStream is = getClass().getResourceAsStream("/maps/mapTree.txt");
+        //InputStream is = getClass().getResourceAsStream("/maps/map.txt");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
