@@ -22,6 +22,8 @@ public class Player extends Entity{
 
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
         screenY = gp.screenHeight/2 - (gp.tileSize/2);
+        //solid area:
+        solidArea = new Rectangle(8, 16, 32, 32);
 
         setDefaultValues();
         getPlayerImage();
@@ -66,6 +68,9 @@ public class Player extends Entity{
                 direction = "right";
                 worldX = worldX + speed;
             }
+            //collisionCheck:
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
             spriteCounter++;
             if (spriteCounter > 12) { // moving speed (sprite)
                 if (spriteNum == 1) {
