@@ -21,7 +21,7 @@ public class TileManager {
         tile = new Tile[10];
         mapTileNum = new int [gp.maxScreenCol][gp.maxScreenRow];
         getTileImage();
-        loadMap();
+        loadMap("/maps/mapTree.txt");
     }
 
     public void getTileImage(){
@@ -39,16 +39,23 @@ public class TileManager {
             tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/water.png")));
 
             tile[3] = new Tile();
-            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/tree.png")));
+            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/earth.png")));
+
+            tile[4] = new Tile();
+            tile[4].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/tree.png")));
+
+            tile[5] = new Tile();
+            tile[5].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/sand.png")));
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void loadMap(){
+    public void loadMap(String filePath){
         try {
-        InputStream is = getClass().getResourceAsStream("/maps/mapTree.txt");
+        InputStream is = getClass().getResourceAsStream(filePath);
         //InputStream is = getClass().getResourceAsStream("/maps/map.txt");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
