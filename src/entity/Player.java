@@ -57,20 +57,39 @@ public class Player extends Entity{
 
             if (keyH.upPressed) {
                 direction = "up";
-                worldY = worldY - speed;
+                //worldY = worldY - speed;
             } else if (keyH.downPressed) {
                 direction = "down";
-                worldY = worldY + speed;
+                //worldY = worldY + speed;
             } else if (keyH.leftPressed) {
                 direction = "left";
-                worldX = worldX - speed;
+                //worldX = worldX - speed;
             } else if (keyH.rightPressed) { //keyH.rightPressed == true
                 direction = "right";
-                worldX = worldX + speed;
+                //worldX = worldX + speed;
             }
-            //collisionCheck:
+            //check tile collision:
             collisionOn = false;
             gp.cChecker.checkTile(this);
+
+            //if collision is false, player can move
+            if(collisionOn == false){
+                switch (direction){
+                    case "up":
+                        worldY = worldY - speed;
+                        break;
+                    case "down":
+                        worldY = worldY + speed;
+                        break;
+                    case "left":
+                        worldX = worldX - speed;
+                        break;
+                    case "right":
+                        worldX = worldX + speed;
+                        break;
+                }
+            }
+
             spriteCounter++;
             if (spriteCounter > 12) { // moving speed (sprite)
                 if (spriteNum == 1) {
