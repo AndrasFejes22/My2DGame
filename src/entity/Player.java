@@ -15,6 +15,7 @@ public class Player extends Entity{
     //player character screen position
     public final int screenX;
     public final int screenY;
+    int hasKey = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -81,6 +82,7 @@ public class Player extends Entity{
 
             //check object collision:
             int objectIndex = gp.cChecker.checkObject(this, true);
+            pickUpObject(objectIndex);
 
             //if collision is false, player can move
             if(collisionOn == false){
@@ -109,6 +111,30 @@ public class Player extends Entity{
                 }
                 spriteCounter = 0;
             }
+        }
+    }
+
+    public void pickUpObject(int index){
+        if(index != 999){
+            //gp.obj[index] = null; //delete teh touched object, but it is too simply
+
+            String objectName = gp.obj[index].name;
+
+            switch (objectName){
+                case "key":
+                    hasKey++;
+                    gp.obj[index] = null;
+                    System.out.println("Key: " + hasKey);
+                    break;
+                case "Door":
+                    if(hasKey > 0){
+                        gp.obj[index] = null;
+                        hasKey--;
+                        System.out.println("Key: " + hasKey);
+                    }
+                    break;
+            }
+
         }
     }
 
