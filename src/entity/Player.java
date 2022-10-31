@@ -74,9 +74,13 @@ public class Player extends Entity{
                 direction = "right";
                 //worldX = worldX + speed;
             }
+
             //check tile collision:
             collisionOn = false;
             gp.cChecker.checkTile(this);
+
+            //check object collision:
+            int objectIndex = gp.cChecker.checkObject(this, true);
 
             //if collision is false, player can move
             if(collisionOn == false){
