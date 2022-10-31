@@ -16,6 +16,7 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
     int hasKey = 0;
+    int hasBoots = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -121,7 +122,7 @@ public class Player extends Entity{
             String objectName = gp.obj[index].name;
 
             switch (objectName){
-                case "key":
+                case "Key":
                     hasKey++;
                     gp.obj[index] = null;
                     System.out.println("Key: " + hasKey);
@@ -133,6 +134,10 @@ public class Player extends Entity{
                         System.out.println("Key: " + hasKey);
                     }
                     break;
+                case "Boots": //increase player speed
+                    speed +=2;
+                    gp.obj[index] = null;
+                    System.out.println("Boots: " + hasBoots);
             }
 
         }
