@@ -3,13 +3,13 @@ package object;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJ_Key extends SuperObject{
+public class OBJ_Door extends SuperObject{
 
-    public OBJ_Key() {
+    public OBJ_Door() {
 
-        name = "key";
+        name = "Door";
         try {
-            image = ImageIO.read(getClass().getResource("/objects/key.png"));
+            image = ImageIO.read(getClass().getResource("/objects/door.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
