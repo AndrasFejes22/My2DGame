@@ -15,8 +15,8 @@ public class Player extends Entity{
     //player character screen position
     public final int screenX;
     public final int screenY;
-    int hasKey = 0;
-    int hasBoots = 0;
+    public int hasKey = 0;
+    public int hasBoots = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
