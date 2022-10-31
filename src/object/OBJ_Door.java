@@ -13,5 +13,9 @@ public class OBJ_Door extends SuperObject{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //make this object solid:
+        collision = true;
+
+
     }
 }
