@@ -126,6 +126,7 @@ public class Player extends Entity{
                     gp.playSoundEffect(1);
                     hasKey++;
                     gp.obj[index] = null;
+                    gp.ui.showMessage("You got a key!");
                     System.out.println("Key: " + hasKey);
                     break;
                 case "Door":
@@ -133,7 +134,10 @@ public class Player extends Entity{
                         gp.playSoundEffect(3);
                         gp.obj[index] = null;
                         hasKey--;
+                        gp.ui.showMessage("You opened the door!");
                         System.out.println("Key: " + hasKey);
+                    } else {
+                        gp.ui.showMessage("You need a key!");
                     }
                     break;
                 case "Boots": //increase player speed
@@ -141,7 +145,15 @@ public class Player extends Entity{
                     speed +=2;
                     gp.obj[index] = null;
                     hasBoots++;
+                    gp.ui.showMessage("You got boots!");
                     System.out.println("Boots: " + hasBoots);
+                    break;
+                case "Chest": // game finished
+                    gp.ui.gameFinished = true;
+                    gp.stopMusic();
+                    gp.playSoundEffect(4);
+                    break;
+
             }
 
         }
