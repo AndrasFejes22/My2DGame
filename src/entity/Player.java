@@ -140,6 +140,7 @@ public class Player extends Entity{
                     gp.playSoundEffect(2);
                     speed +=2;
                     gp.obj[index] = null;
+                    hasBoots++;
                     System.out.println("Boots: " + hasBoots);
             }
 
