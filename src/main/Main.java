@@ -9,7 +9,7 @@ public class Main {
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("2D Adventure");
+        window.setTitle("2D Adventure by RyiSnow & Andras_Fejes");
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
