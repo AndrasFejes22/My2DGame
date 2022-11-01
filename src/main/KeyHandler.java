@@ -5,13 +5,20 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
+    GamePanel gp;
+
     public boolean upPressed;
     public boolean downPressed;
     public boolean leftPressed;
     public boolean rightPressed;
 
+    public KeyHandler(GamePanel gp) {
+        this.gp = gp;
+    }
+
     // debug-time
     public boolean checkDrawTime = false;
+    public boolean playMusic = true;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -45,6 +52,26 @@ public class KeyHandler implements KeyListener {
                 checkDrawTime = false;
             }
         }
+
+        //pause
+        if(code == KeyEvent.VK_P){
+            if(gp.gameState == gp.playState){
+                gp.gameState =gp.pauseState;
+                gp.stopMusic();
+            }
+            else if(gp.gameState == gp.pauseState){
+                gp.gameState = gp.playState;
+                gp.playMusic(0);
+            }
+        }
+
+
+        /*
+        if(code == KeyEvent.VK_O){
+            Sound sound = new Sound();
+            sound.stop();
+        }
+        */
 
     }
 
