@@ -73,6 +73,8 @@ public class UI {
             gp.gameThread = null;
 
 
+
+
         } else {
             g2.setFont(arial_40);
             g2.setColor(Color.orange);
@@ -95,6 +97,25 @@ public class UI {
                     messageCounter = 0;
                     messageOn = false;
                 }
+            }
+
+            //sajat, pause:
+            if(gp.gameState == gp.pauseState){
+                //playtime?
+                String text;
+                int textLenght;
+                int x;
+                int y;
+
+
+                g2.setFont(arial_40);
+                g2.setColor(Color.orange);
+
+                text = "Game paused";
+                textLenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+                x = gp.screenWidth/2 - textLenght/2;
+                y = gp.screenHeight/2 - (gp.tileSize * 3);
+                g2.drawString(text, x, y);
             }
         }
 
