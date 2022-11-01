@@ -29,7 +29,16 @@ public class TileManager {
 
         //up1 = ImageIO.read(getClass().getResource("/player/boy_up_1.png"));
 
-        try {
+        //try {
+
+            setup(0, "grass", false);
+            setup(1, "wall", true); //true: not penetrable, collision true
+            setup(2, "water", true);
+            setup(3, "earth", false);
+            setup(4, "tree", true);
+            setup(5, "sand", false);
+
+            /*
             tile[0] = new Tile();
             tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/grass.png")));
 
@@ -50,18 +59,18 @@ public class TileManager {
 
             tile[5] = new Tile();
             tile[5].image = ImageIO.read(Objects.requireNonNull(getClass().getResource("/newTiles/sand.png")));
+            */
 
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //} catch (IOException e) {
+           // e.printStackTrace();
+        //}
     }
 
-    public void setup(int index, String imagePath, boolean collision){
+    public void setup(int index, String imageName, boolean collision){
         UtilityTool uTool = new UtilityTool();
         try{
             tile[index] = new Tile();
-            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/tiles/" + imagePath + ".png"));
+            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/newTiles/" + imageName + ".png"));
             tile[index].image = uTool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
             tile[index].collision = collision;
 
@@ -122,7 +131,8 @@ public class TileManager {
                     worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
                     worldY + gp.tileSize  > gp.player.worldY - gp.player.screenY &&
                     worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
-                g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+                //g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(tile[tileNum].image, screenX, screenY,  null); // no need to scale
             }
 
             worldCol++;
